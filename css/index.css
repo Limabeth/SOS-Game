@@ -473,12 +473,6 @@ a:hover {
   margin: 40px 0 0 0;
 }
 
-.main-page .wrapper .main-menu .store-icons a {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
 .main-page .wrapper .main-menu .store-icons div {
   width: 45px;
   height: 40px;
@@ -562,14 +556,8 @@ a:hover {
   }
 }
 
-.main-page .wrapper .buy a {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
 .main-page .wrapper .buy:hover {
-  color: #e75149;
+  background: #e75149;
   transition: all 0.25s ease-in-out;
 }
 

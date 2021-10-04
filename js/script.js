@@ -49,14 +49,41 @@ function showMobileMenu() {
   }
 };
 
-function scrollPage() {
-  const mainPage = document.getElementsByClassName("main-page")[0];
-  const coords = mainPage.getBoundingClientRect();
-  const coordY = coords.height;
+function scrollArrow() {
+  const scrollArrow = document.getElementsByClassName("main-scroll")[0];
 
-  const scrollEl = document.getElementsByClassName("main-scroll")[0];
+  scrollArrow.addEventListener("click", () => {
+    const pageMain = document.getElementsByClassName("main-page")[0];
+    const coords = pageMain.getBoundingClientRect();
+    const coordY = coords.height;
 
-  scrollEl.addEventListener("click", () => window.scroll({top: coordY, left: 0, behavior: "smooth"}));
+    window.scroll({top: coordY, left: 0, behavior: "smooth"})
+  });
+}
+
+function scrollers() {
+  const scrollMain = document.querySelector(".scroll-main");
+  const scrollAbout = document.querySelector(".scroll-about");
+  const scrollFeatures = document.querySelector(".scroll-features");
+  const scrollReqs = document.querySelector(".scroll-reqs");
+  const scrollQuotes = document.querySelector(".scroll-quotes");
+
+  scrollMain.addEventListener("click", () => {
+    const mainPage = document.querySelector(".main-page");
+    const coords = mainPage.getBoundingClientRect();
+    const coordY = coords.top;
+
+
+    window.scroll({top: coordY, left: 0, behavior: "smooth"})
+  })
+
+  scrollAbout.addEventListener("click", () => {
+    const aboutPage = document.querySelector(".about-page");
+    const coords = aboutPage.getBoundingClientRect();
+    const coordY = coords.bottom;
+
+    window.scroll({top: coordY, left: 0, behavior: "smooth"})
+  })
 }
 
 function collapsible() {
@@ -80,8 +107,9 @@ function collapsible() {
 function init() {
   showLanguages();
   showMobileMenu();
-  scrollPage();
+  scrollArrow();
   collapsible();
+  scrollers();
 }
 
 init();
