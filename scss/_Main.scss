@@ -1,0 +1,38 @@
+$BGMain: url("../img/background/1.jpg");
+
+$steam: url("../img/icons/steam.svg");
+$steamhover: url("../img/icons/steamhover.svg");
+
+$xbox: url("../img/icons/xbox.svg");
+$xboxhover: url("../img/icons/xboxhover.svg");
+
+$scroll: url("../img/icons/scroll.svg");
+$scrollhover: url("../img/icons/scrollhover.svg");
+
+$langarrow: url("../img/icons/arrowdown.svg");
+
+$MainPageColors: (
+  header: #ffffff,
+  nav: #ffffff,
+  lang: #ffffff,
+  langhover: #ffb548,
+  langlist: #000000bf,
+  button: #ffb548,
+  buttonhover: #e75149,
+  scroll: #ffb548,
+  bar: #d4d4d4,
+);
+
+$MainPageBreakpoints: (
+  1: 1250px,
+  2: 870px,
+  3: 780px,
+);
+
+@function getMainBreakpoint($breakpoint) {
+  @return map-get($MainPageBreakpoints, $breakpoint);
+}
+
+@function getMainColor($type) {
+  @return map-get($MainPageColors, $type);
+}

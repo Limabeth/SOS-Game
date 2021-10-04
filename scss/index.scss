@@ -1,0 +1,1953 @@
+@import "./fonts";
+@import "./mixins";
+@import "./variables";
+
+@import "./Main";
+@import "./About";
+@import "./Features";
+@import "./Requirements";
+@import "./Quotes";
+@import "./Newsletter";
+
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+main,
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
+  display: block;
+}
+
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+/* Responsive images and other embedded objects */
+/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+	In fact, it *will* cause problems with Google Maps' controls at small size.
+	If this is the case for you, try uncommenting the following:
+#map img {
+		max-width: none;
+}
+*/
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll;
+}
+
+/* we use a lot of ULs that aren't bulleted.
+	you'll have to restore the bullets within content,
+	which is fine because they're probably customized anyway */
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+pre {
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+
+select,
+input,
+textarea {
+  font: 99% sans-serif;
+}
+
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+td,
+td img {
+  vertical-align: top;
+}
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+/* standardize any monospaced elements */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, sans-serif;
+}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type="button"],
+input[type="submit"],
+input[type="file"],
+button {
+  cursor: pointer;
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+/* let's clear some floats */
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-img {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #ffb64800;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  background: #ff512f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #f09819,
+    #ff512f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #f09819,
+    #ff512f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body::-webkit-scrollbar-thumb {
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.87);
+}
+
+a,
+a:hover {
+  color: transparent;
+  text-decoration: none;
+}
+
+.main-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), $BGMain;
+  @include BG;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .main-menu {
+      width: 100%;
+      height: 110px;
+
+      display: flex;
+      flex-direction: row;
+
+      @media screen and (max-width: getMainBreakpoint(3)) {
+        display: none;
+      }
+
+      .main-logo {
+        min-width: 71px;
+        min-height: 71px;
+
+        margin: 16px 12vw 0 8vw;
+
+        @media screen and (max-width: getMainBreakpoint(1)) {
+          margin: 16px 6vw 0 6vw;
+        }
+
+        @media screen and (max-width: getMainBreakpoint(2)) {
+          margin: 16px 2vw 0 2vw;
+        }
+      }
+
+      .navbar {
+        display: flex;
+        flex-direction: row;
+
+        > ul {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          li {
+            color: getMainColor(nav);
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            padding: 7px;
+            text-align: center;
+
+            &:hover {
+              transform: scale(1.1);
+              border-bottom: 1px solid white;
+              transition: all 0.25s ease-in-out;
+            }
+          }
+
+          li:not(:last-of-type) {
+            margin: 0 3vw 0 0;
+          }
+        }
+
+        .languages {
+          margin: 40px 0 0 0;
+
+          .lang {
+            color: getMainColor(lang);
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            padding: 5px;
+            margin: 0 0 0 12vw;
+
+            &:hover {
+              color: getMainColor(langhover);
+            }
+
+            @media screen and (max-width: getMainBreakpoint(1)) {
+              margin: 0 10px 0 6vw;
+            }
+
+            img {
+              width: 12px;
+              height: auto;
+
+              margin: 0 0 0 10px;
+            }
+          }
+
+          .lang-list {
+            flex-direction: column;
+            margin: 10px 0 0 12vw;
+
+            @media screen and (max-width: getMainBreakpoint(1)) {
+              margin: 0 10px 0 6vw;
+            }
+
+            ul {
+              background: rgba(0, 0, 0, 0.75);
+
+              padding: 8px 16px 8px 8px;
+              border: none;
+              border-radius: 8px;
+
+              cursor: pointer;
+
+              @media screen and (max-width: getMainBreakpoint(1)) {
+                padding: 8px;
+              }
+            }
+
+            li {
+              color: getMainColor(lang);
+              font-family: "Open Sans", serif;
+              font-size: 14px;
+              font-weight: bold;
+              text-transform: uppercase;
+              line-height: 30px;
+
+              &:hover {
+                color: getMainColor(langhover);
+              }
+
+              @media screen and (max-width: getMainBreakpoint(1)) {
+                line-height: 30px;
+              }
+            }
+          }
+        }
+      }
+
+      .bar {
+        width: 1px;
+        height: 30px;
+
+        background: getMainColor(bar);
+        margin: 40px 30px 0 30px;
+
+        @media screen and (max-width: getMainBreakpoint(1)) {
+          display: none;
+        }
+      }
+
+      .store-icons {
+        display: flex;
+        flex-direction: row;
+        margin: 40px 0 0 0;
+
+        a {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+
+        div {
+          width: 45px;
+          height: 40px;
+          background-repeat: no-repeat;
+        }
+
+        .xbox-icon {
+          position: relative;
+          overflow: hidden;
+          background: $xbox no-repeat;
+          &:hover {
+            background: $xboxhover no-repeat;
+          }
+        }
+
+        .steam-icon {
+          position: relative;
+          overflow: hidden;
+          background: $steam no-repeat;
+          &:hover {
+            background: $steamhover no-repeat;
+          }
+        }
+      }
+
+      .store-icons div {
+        margin: 0 5px 0 0;
+      }
+    }
+
+    .headers {
+      width: auto;
+      margin: 320px auto 30px auto;
+
+      color: getMainColor(header);
+      font-family: "Bebas Neue", serif;
+      text-align: center;
+      letter-spacing: 3px;
+
+      h1 {
+        font-weight: normal;
+        font-size: 6rem;
+      }
+
+      h3 {
+        font-weight: normal;
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+
+      @media screen and (max-width: getMainBreakpoint(3)) {
+        h1 {
+          font-size: 12vw;
+        }
+
+        h3 {
+          font-size: 4vw;
+        }
+      }
+    }
+
+    .buy {
+      position: relative;
+      overflow: hidden;
+
+      background: getMainColor(button);
+
+      display: flex;
+      align-items: center;
+      align-self: center;
+
+      margin: 0 0 450px 0;
+      padding: 20px 17px;
+
+      border: none;
+      border-radius: 8px;
+
+      font-family: "Open Sans", serif;
+      font-weight: bold;
+      font-size: 1rem;
+      text-align: center;
+
+      @media screen and (max-width: getMainBreakpoint(3)) {
+        margin: 20px 0 400px 0;
+        padding: 15px 12px;
+      }
+
+      a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover {
+        color: getMainColor(buttonhover);
+        transition: all 0.25s ease-in-out;
+      }
+
+      .bar {
+        width: 1px;
+        height: 30px;
+
+        display: inline-block;
+        align-self: flex-start;
+
+        margin: 0 13px;
+
+        background: #1a1917;
+      }
+    }
+
+    .main-scroll {
+      align-self: center;
+      text-align: center;
+
+      margin: 0 0 55px 0;
+
+      &:hover div:first-of-type {
+        color: getMainColor(scroll);
+      }
+
+      &:hover .scroll-icon {
+        background: $scrollhover no-repeat center center;
+      }
+
+      div:first-of-type {
+        color: getMainColor(lang);
+        font-family: "Open Sans", serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 32px;
+      }
+
+      .scroll-icon {
+        width: 30px;
+        height: 30px;
+
+        background: $scroll no-repeat center center;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .mobile-wrapper {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @media screen and (max-width: getMainBreakpoint(3)) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.35);
+
+      img {
+        width: auto;
+        height: 40px;
+
+        margin: 5px 10px 0 10px;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .lines {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 15px 20px;
+
+        div {
+          width: 20px;
+          height: 2px;
+
+          border: none;
+          border-radius: 5px;
+          background: white;
+
+          transition: 0.5s ease-in-out;
+          transform-origin: center;
+        }
+      }
+    }
+
+    .menu-options {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+
+      div {
+        color: getMainColor(nav);
+        font-family: "Open Sans", serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+
+        padding: 15px;
+        border-bottom: 1px solid white;
+
+        div {
+          width: 20px;
+          height: 2px;
+
+          border: none;
+          border-radius: 5px;
+          background: white;
+
+          transition: 0.5s ease-in-out;
+          transform-origin: center;
+        }
+      }
+
+      &.show {
+        display: block;
+      }
+    }
+
+    .mobile-languages {
+      color: getMainColor(nav);
+      font-family: "Open Sans", serif;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      display: flex;
+      flex-direction: column;
+
+      .mobile-lang {
+        width: 70px;
+        margin: 15px 0px 0 0;
+
+        &:after {
+          content: $langarrow;
+          width: 25px;
+          height: 25px;
+          margin: 0 0 0 10px;
+        }
+      }
+
+      .mobile-lang-list {
+        width: 60px;
+        flex-direction: column;
+        margin: 10px 0 0 0;
+
+        ul {
+          background: getMainColor(langlist);
+
+          padding: 8px;
+          margin: 0 0 0 -10px;
+          border: none;
+          border-radius: 8px;
+
+          cursor: pointer;
+        }
+
+        li {
+          line-height: 30px;
+          font-size: 1rem;
+
+          &:hover {
+            color: getMainColor(langhover);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*--------------------------------------About--------------------------------------*/
+
+.about-page {
+  @include BG;
+  background: radial-gradient(
+      136.03% 54.57% at 50% 48.04%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.9) 60.63%,
+      #080a0b 99.74%
+    ),
+    $BGAbout;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100vh;
+
+  @media screen and (max-width: getAboutBreakpoint(2)) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .text-content {
+    width: 715px;
+    height: 450px;
+
+    margin: 0 15px 0 40px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    z-index: 2;
+
+    @media screen and (max-width: getAboutBreakpoint(1)) {
+      width: 40vw;
+      height: auto;
+
+      display: flex;
+      flex-direction: column;
+
+      margin: 0 0 0 25px;
+    }
+
+    @media screen and (max-width: getAboutBreakpoint(2)) {
+      width: auto;
+      height: auto;
+
+      margin: 0 0 25px 0;
+    }
+
+    @media screen and (max-width: getAboutBreakpoint(4)) {
+      margin: 15px;
+      width: 300px;
+    }
+
+    .headers {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+
+      margin: 0 0 0 50px;
+      width: 100%;
+
+      @media screen and (max-width: getAboutBreakpoint(1)) {
+        margin: 0px;
+      }
+
+      @media screen and (max-width: getAboutBreakpoint(4)) {
+        margin: 0 0 10px 0;
+      }
+
+      h1,
+      h3 {
+        color: getAboutColor(headers);
+        font-family: "Bebas Neue", serif;
+        font-weight: normal;
+        letter-spacing: 3px;
+      }
+
+      h1 {
+        font-size: 5rem;
+
+        @media screen and (max-width: 1340px) {
+          font-size: 4rem;
+        }
+
+        @media screen and (max-width: getAboutBreakpoint(2)) {
+          font-size: 3rem;
+        }
+
+        @media screen and (max-width: getAboutBreakpoint(4)) {
+          font-size: 2rem;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+
+        @media screen and (max-width: getAboutBreakpoint(2)) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .text {
+      width: 480px;
+
+      color: getAboutColor(text);
+      font-family: "Open Sans", serif;
+      text-align: justify;
+
+      grid-column: 2 / 4;
+      grid-row: 2 / 3;
+
+      @media screen and (max-width: getAboutBreakpoint(1)) {
+        width: 400px;
+      }
+
+      @media screen and (max-width: getAboutBreakpoint(2)) {
+        font-size: 0.8rem;
+      }
+
+      @media screen and (max-width: getAboutBreakpoint(4)) {
+        width: auto;
+      }
+
+      span {
+        border-bottom: 2px solid getAboutColor(underline);
+      }
+    }
+
+    p {
+      width: 470px;
+    }
+  }
+
+  .gallery {
+    .image-set {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      width: 500px;
+      height: 75vh;
+
+      @media screen and (max-width: getAboutBreakpoint(1)) {
+        width: 400px;
+      }
+
+      @media screen and (max-width: getAboutBreakpoint(2)) {
+        height: 60vh;
+      }
+
+      @media screen and (max-width: getAboutBreakpoint(4)) {
+        margin: 25px 0 0 40px;
+        height: 35vh;
+        width: 300px;
+      }
+
+      div {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: $ScreenshotWidth;
+        height: $ScreenshotHeight;
+
+        @media screen and (max-width: getAboutBreakpoint(4)) {
+          width: auto;
+          height: 300px;
+        }
+
+        img {
+          border: none;
+          border-radius: 10px;
+          box-shadow: 0 20px 25px black;
+        }
+      }
+
+      div:nth-of-type(1) {
+        z-index: 3;
+
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+
+      div:nth-of-type(2) {
+        left: 45px;
+        z-index: 2;
+
+        img {
+          width: auto;
+          height: 90%;
+        }
+      }
+
+      div:nth-of-type(3) {
+        z-index: 1;
+        left: 90px;
+
+        img {
+          width: auto;
+          height: 80%;
+        }
+      }
+
+      div:nth-of-type(n + 4) {
+        z-index: -1;
+      }
+    }
+  }
+
+  .switch {
+    width: 40px;
+    height: 40px;
+    background: $switch no-repeat center center;
+
+    margin: 0 6vw 0 2vw;
+
+    &:hover {
+      background: $switchhover no-repeat center center;
+    }
+
+    @media screen and (max-width: getAboutBreakpoint(1)) {
+      margin: 0 3vw 0 1vw;
+    }
+
+    @media screen and (max-width: getAboutBreakpoint(2)) {
+      background: $switchhover no-repeat center center;
+      position: absolute;
+      top: 60%;
+      left: 80%;
+    }
+
+    @media screen and (max-width: getAboutBreakpoint(3)) {
+      left: 85%;
+    }
+
+    @media screen and (max-width: getAboutBreakpoint(4)) {
+      top: 75%;
+      left: 40%;
+    }
+  }
+}
+
+/*--------------------------------------Features--------------------------------------*/
+
+.features-page {
+  @include BG;
+  background: radial-gradient(
+      51.1% 80.48% at 30.85% 53.65%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0) 19.2%,
+      rgba(4, 5, 6, 0.75) 55.48%,
+      #080a0b 99.74%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(23, 25, 29, 1) 0%,
+      rgba(12, 13, 15, 0) 50%,
+      rgba(23, 25, 29, 0.25) 100%
+    ),
+    $BGFeatures;
+  height: 100vh;
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  @media screen and (max-width: getFeaturesBreakpoint(2)) {
+    background: radial-gradient(
+        51.1% 80.48% at 45.85% 25.65%,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(4, 5, 6, 0.75) 47.48%,
+        #080a0b 99.74%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(23, 25, 29, 1) 0%,
+        rgba(12, 13, 15, 0) 50%,
+        rgba(23, 25, 29, 0.25) 100%
+      ),
+      $BGFeatures;
+  }
+
+  @media screen and (max-width: getFeaturesBreakpoint(3)) {
+    align-items: center;
+    background-position: right center;
+  }
+
+  div {
+    margin: 0 50px 0 0;
+
+    @media screen and (min-width: getFeaturesBreakpoint(1)) {
+      margin: 0 10vw 0 0;
+    }
+
+    @media screen and (max-width: getFeaturesBreakpoint(3)) {
+      margin: 0px;
+    }
+
+    .headers {
+      color: getFeaturesColor(headers);
+      font-family: "Bebas Neue", serif;
+
+      h1 {
+        font-size: 5rem;
+        font-weight: normal;
+        letter-spacing: 3px;
+
+        @media screen and (max-width: getFeaturesBreakpoint(4)) {
+          font-size: 3rem;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: 3px;
+
+        @media screen and (max-width: getFeaturesBreakpoint(4)) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    ul {
+      margin: 0 0 0 25px;
+
+      li {
+        button {
+          position: relative;
+          border: none;
+          background: none;
+
+          margin: 10px 0;
+
+          color: getFeaturesColor(button);
+          font-size: 2rem;
+          font-family: "Bebas Neue", serif;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+
+          &:hover {
+            color: getFeaturesColor(buttonhover);
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: -25px;
+            width: 14px;
+            height: 14px;
+            border: 1px solid white;
+            border-radius: 50%;
+          }
+
+          &.active {
+            &:before {
+              background: white;
+            }
+          }
+
+          @media screen and (max-width: getFeaturesBreakpoint(4)) {
+            font-size: 1.5rem;
+          }
+        }
+
+        p {
+          display: none;
+          height: 0%;
+          width: 350px;
+
+          margin: 5px 0 15px 0;
+
+          color: getFeaturesColor(text);
+          font-family: "Open Sans", serif;
+          font-size: 1rem;
+          line-height: 22px;
+          font-weight: normal;
+          text-align: justify;
+          text-transform: none;
+
+          transition: 2.5s;
+
+          &.show {
+            display: block;
+            height: 100%;
+            transition: 2.5s;
+            animation: Collapsible 2s 1;
+          }
+
+          @media screen and (max-width: getFeaturesBreakpoint(3)) {
+            width: 200px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*--------------------------------------Requirements--------------------------------------*/
+
+.requirements-page {
+  @include BG;
+  position: relative;
+  background: radial-gradient(
+      33.26% 45% at 64.32% 47.1%,
+      rgba(255, 255, 255, 0) 3.36%,
+      rgba(0, 0, 0, 0) 19.22%,
+      #080a0b 99.74%
+    ),
+    $BGRequirements;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .headers {
+    color: getReqsColor(headers);
+    font-family: "Bebas Neue", serif;
+    text-align: center;
+
+    margin: 100px 0;
+
+    @media screen and (max-width: getReqsBreakpoint(1)) {
+      margin: 50px 0;
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-weight: normal;
+      letter-spacing: 3px;
+
+      @media screen and (max-width: getReqsBreakpoint(1)) {
+        font-size: 3rem;
+      }
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+
+      @media screen and (max-width: getReqsBreakpoint(1)) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  div table {
+    border-collapse: collapse;
+
+    margin: 0 400px 0 0;
+
+    @media screen and (max-width: getReqsBreakpoint(1)) {
+      margin: 0 25px;
+    }
+
+    td {
+      width: 250px;
+      padding: 20px 20px 25px 20px;
+
+      border: 1px solid rgba(151, 151, 151, 0.411);
+
+      color: getReqsColor(secondary);
+      font-family: "Open Sans", serif;
+      font-weight: 300;
+      line-height: 16px;
+
+      h6 {
+        color: getReqsColor(primary);;
+        font-family: "Bebas Neue", serif;
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
+
+/*--------------------------------------Quotes--------------------------------------*/
+
+.quotes-page {
+  @include BG;
+  background: radial-gradient(
+      70.52% 37.27% at 24.21% 47.47%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0) 51.1%,
+      #080a0b 99.74%
+    ),
+    $BGQuotes;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: getQuotesBreakpoint(2)) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .testimonials {
+    width: 440px;
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+
+    margin: 0 0 0 100px;
+
+    @media screen and (max-width: getQuotesBreakpoint(1)) {
+      width: 350px;
+      margin: 0 0 0 50px;
+    }
+
+    @media screen and (max-width: getQuotesBreakpoint(2)) {
+      height: auto;
+      margin: 25px 0 0 0;
+    }
+
+    .headers {
+      color: getQuotesColor(primary);
+      font-family: "Bebas Neue", serif;
+
+      h1 {
+        font-size: 5rem;
+        font-weight: 300;
+
+        @media screen and (max-width: getQuotesBreakpoint(2)) {
+          font-size: 3rem;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 1.5px;
+
+        @media screen and (max-width: getQuotesBreakpoint(2)) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .text {
+      color: getQuotesColor(primary);
+      font-family: "Open Sans", serif;
+      font-weight: 300;
+      line-height: 22px;
+      text-align: left;
+
+      @media screen and (max-width: getQuotesBreakpoint(2)) {
+        font-size: 0.8rem;
+      }
+    }
+
+    button {
+      width: 250px;
+      height: 60px;
+      background: getQuotesColor(secondary);
+      color: black;
+      font-size: 1rem;
+      font-family: "Open Sans", serif;
+      font-weight: bold;
+
+      border: none;
+      border-radius: 5px;
+
+      transition: 0.25s ease-in-out;
+
+      @media screen and (max-width: getQuotesBreakpoint(1)) {
+        margin: 25px auto;
+      }
+
+      @media screen and (max-width: getQuotesBreakpoint(2)) {
+        width: 215px;
+        height: 45px;
+        font-size: 0.8rem;
+      }
+
+      &:hover {
+        background: getQuotesColor(primary);
+      }
+    }
+  }
+
+  .user-quotes {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 100px 0 0;
+
+    @media screen and (max-width: getQuotesBreakpoint(1)) {
+      width: auto;
+      margin: 0 50px 0 0;
+    }
+
+    @media screen and (max-width: getQuotesBreakpoint(2)) {
+      margin: 0px;
+    }
+
+    .quote-card {
+      position: relative;
+
+      width: 450px;
+
+      background: #1a1b1c;
+      display: flex;
+      flex-grow: 0;
+      flex-direction: column;
+      flex-grow: 0;
+
+      border-radius: 8px;
+
+      padding: 20px;
+
+      @media screen and (max-width: getQuotesBreakpoint(2)) {
+        width: 350px;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: row;
+
+        .avatar {
+          width: 65px;
+          height: 65px;
+
+          margin: 0 30px 0 0;
+
+          @media screen and (max-width: getQuotesBreakpoint(2)) {
+            width: 40px;
+            height: 40px;
+          }
+
+          div:first-of-type {
+            position: absolute;
+            z-index: 2;
+
+            width: inherit;
+            height: inherit;
+
+            border: none;
+            border-radius: 50%;
+          }
+
+          div:last-of-type {
+            background: getQuotesColor(secondary);
+
+            width: inherit;
+            height: inherit;
+
+            position: absolute;
+            z-index: 1;
+
+            top: 22px;
+            left: 27.5px;
+
+            border: none;
+            border-radius: 50%;
+
+            @media screen and (max-width: getQuotesBreakpoint(2)) {
+              top: 22px;
+              left: 25px;
+            }
+          }
+        }
+
+        .info {
+          .name {
+            color: getQuotesColor(secondary);
+            font-family: "Bebas Neue", serif;
+            font-weight: normal;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            letter-spacing: 2px;
+
+            @media screen and (max-width: getQuotesBreakpoint(2)) {
+              font-size: 1.1rem;
+            }
+          }
+
+          .work-place {
+            color: getQuotesColor(other);
+            font-family: "Open Sans", serif;
+            font-size: 1rem;
+            font-weight: 400;
+
+            @media screen and (max-width: getQuotesBreakpoint(2)) {
+              font-size: 0.8rem;
+            }
+          }
+        }
+
+        .twitter {
+          position: absolute;
+
+          top: 15%;
+          left: 90%;
+
+          width: 20px;
+          height: 20px;
+
+          background: $twitter no-repeat center center;
+          background-size: cover;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .quote {
+        color: getQuotesColor(quote);
+        font-size: 1rem;
+        font-family: "Open Sans", serif;
+        font-weight: 400;
+        line-height: 24px;
+        margin: 15px 0;
+
+        @media screen and (max-width: getQuotesBreakpoint(2)) {
+          font-size: 0.8rem;
+          margin: 10px 0;
+        }
+      }
+
+      .date {
+        color: getQuotesColor(other);
+        font-family: "Open Sans", serif;
+        font-size: 0.8rem;
+        font-weight: 400;
+
+        @media screen and (max-width: getQuotesBreakpoint(2)) {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .quote-card:nth-of-type(1),
+    .quote-card:nth-of-type(3) {
+      align-self: flex-end;
+
+      @media screen and (max-width: getQuotesBreakpoint(1)) {
+        align-self: flex-start;
+      }
+    }
+
+    .quote-card:not(:last-of-type) {
+      margin: 0 0 30px 0;
+    }
+
+    .quote-card:nth-of-type(1) .user-info .avatar div:first-of-type {
+      background: getUserImg(evan_lahti) no-repeat center center;
+    }
+
+    .quote-card:nth-of-type(2) .user-info .avatar div:first-of-type {
+      background: getUserImg(jada_griffin) no-repeat center center;
+    }
+
+    .quote-card:nth-of-type(3) .user-info .avatar div:first-of-type {
+      background: getUserImg(aaron_williams) no-repeat center center;
+    }
+  }
+}
+
+/*--------------------------------------Newsletter--------------------------------------*/
+
+.newsletter-page {
+  position: relative;
+  background: rgb(8, 10, 11);
+  height: 125vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  @media screen and (max-width: getNewsBreakpoint(4)) {
+    height: 150vh;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .image {
+      background: radial-gradient(
+          circle,
+          rgba(15, 15, 15, 0) 0%,
+          rgb(8, 10, 11) 70%
+        ),
+        $BGNewsletter no-repeat center center;
+      margin: 0 50px 0 0;
+
+      @media screen and (max-width: getNewsBreakpoint(1)) {
+        background: linear-gradient(
+            0deg,
+            rgba(8, 10, 11, 1) 0%,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(8, 10, 11, 1) 100%
+          ),
+          linear-gradient(
+            90deg,
+            rgba(8, 10, 11, 1) 0%,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(8, 10, 11, 1) 100%
+          ),
+          $BGNewsletter no-repeat center center;
+      }
+
+      @media screen and (max-width: getNewsBreakpoint(4)) {
+        display: none;
+      }
+    }
+
+    > div {
+      width: 675px;
+      height: 630px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media screen and (max-width: getNewsBreakpoint(1)) {
+        width: 300px;
+      }
+
+      @media screen and (max-width: getNewsBreakpoint(4)) {
+        margin: 50px auto 0 auto;
+      }
+
+      .headers {
+        color: getNewsColor(headers);
+        font-family: "Bebas Neue", serif;
+      }
+
+      h1 {
+        font-size: 5rem;
+        font-weight: normal;
+        letter-spacing: 3px;
+
+        @media screen and (max-width: getNewsBreakpoint(1)) {
+          font-size: 4rem;
+        }
+
+        @media screen and (max-width: getNewsBreakpoint(4)) {
+          font-size: 3rem;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: 2px;
+
+        @media screen and (max-width: getNewsBreakpoint(4)) {
+          font-size: 1rem;
+        }
+      }
+
+      .text {
+        color: getNewsColor(text);
+        font-family: "Open Sans", serif;
+        font-size: 1rem;
+        font-weight: 300;
+
+        margin: 0 0 70px 0;
+
+        @media screen and (max-width: getNewsBreakpoint(1)) {
+          text-align: justify;
+          margin: 0 0 35px 0;
+        }
+      }
+
+      .contact {
+        input {
+          background: #1c1e1f;
+          width: 345px;
+
+          padding: 20px 10px;
+          margin: 0 10px 0 0;
+
+          color: getNewsColor(input);
+          font-size: 1rem;
+          font-family: "Open Sans", serif;
+          border: none;
+          outline: none;
+          border-radius: 5px;
+
+          @media screen and (max-width: getNewsBreakpoint(1)) {
+            width: 255px;
+            margin: 0px;
+            padding: 20px 10px;
+          }
+        }
+
+        button {
+          background: getNewsColor(button);
+          padding: 20px 70px;
+
+          color: black;
+          font-size: 1rem;
+          font-weight: bold;
+
+          border: none;
+          outline: none;
+          border-radius: 5px;
+
+          @media screen and (max-width: getNewsBreakpoint(1)) {
+            margin: 25px auto 0 auto;
+          }
+
+          &:hover {
+            background: getNewsColor(buttonhover);
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    margin: 100px 0 0 0;
+
+    @media screen and (max-width: getNewsBreakpoint(1)) {
+      width: 90%;
+      margin: 100px 50px 0 50px;
+    }
+
+    @media screen and (max-width: getNewsBreakpoint(4)) {
+      margin: 25px 10px;
+    }
+
+    .navbar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      padding: 30px 0;
+
+      border-bottom: 1px solid white;
+
+      @media screen and (max-width: getNewsBreakpoint(1)) {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      @media screen and (max-width: getNewsBreakpoint(4)) {
+        flex-direction: column;
+      }
+
+      .logo img {
+        width: 90px;
+        height: auto;
+
+        @media screen and (max-width: getNewsBreakpoint(1)) {
+          width: 45px;
+          height: auto;
+        }
+
+        @media screen and (max-width: getNewsBreakpoint(2)) {
+          min-width: 25px;
+          height: auto;
+        }
+
+        @media screen and (max-width: getNewsBreakpoint(4)) {
+          margin: 0 0 40px 0;
+        }
+      }
+
+      .menu {
+        ul {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          margin: 0 90px 0 170px;
+
+          @media screen and (max-width: getNewsBreakpoint(1)) {
+            align-items: center;
+            justify-content: center;
+            margin: 0px;
+          }
+
+          @media screen and (max-width: getNewsBreakpoint(4)) {
+            margin: 0 0 40px 0;
+          }
+
+          @media screen and (max-width: getNewsBreakpoint(5)) {
+            justify-content: space-between;
+          }
+
+          li {
+            color: getNewsColor(nav);
+            font-family: "Open Sans", serif;
+            font-size: 0.75rem;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+
+            @media screen and (max-width: getNewsBreakpoint(1)) {
+              margin: 10px 0;
+            }
+
+            @media screen and (max-width: getNewsBreakpoint(4)) {
+              line-height: 50px;
+            }
+
+            &:hover {
+              color: getNewsColor(navhover);
+              transform: scale(1.1);
+              transition: 0.15s ease-in-out;
+            }
+          }
+        }
+
+        li:not(:last-of-type) {
+          margin: 0 45px 0 0;
+
+          @media screen and (max-width: getNewsBreakpoint(1)) {
+            margin: 0 20px 0 0;
+          }
+        }
+
+        @media screen and (max-width: getNewsBreakpoint(3)) {
+          li:not(:nth-of-type(5)),
+          li:not(:nth-of-type(3)) {
+            margin: 20px 20px 0 0;
+          }
+        }
+
+        @media screen and (max-width: getNewsBreakpoint(5)) {
+          li:not(:nth-of-type(5)),
+          li:not(:nth-of-type(3)) {
+            margin: 0 20px 0 0;
+          }
+        }
+      }
+
+      .media {
+        @media screen and (max-width: getNewsBreakpoint(6)) {
+          width: 100%;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: row;
+
+          @media screen and (max-width: getNewsBreakpoint(6)) {
+            justify-content: space-between;
+          }
+
+          li {
+            div {
+              width: 25px;
+              height: 25px;
+            }
+            .facebook-icon {
+              background: $facebook;
+              @include IconAsBG;
+
+              &:hover {
+                background: $facebookhover;
+                @include IconAsBG;
+              }
+            }
+
+            .telegram-icon {
+              background: $telegram;
+              @include IconAsBG;
+
+              &:hover {
+                background: $telegramhover;
+                @include IconAsBG;
+              }
+            }
+
+            .youtube-icon {
+              background: $youtube;
+              @include IconAsBG;
+
+              &:hover {
+                background: $youtubehover;
+                @include IconAsBG;
+              }
+            }
+
+            .twitch-icon {
+              background: $twitch;
+              @include IconAsBG;
+
+              &:hover {
+                background: $twitchhover;
+                @include IconAsBG;
+              }
+            }
+          }
+
+          li:not(:last-of-type) {
+            margin: 0 60px 0 0;
+
+            @media screen and (max-width: getNewsBreakpoint(1)) {
+              margin: 0 30px 0 0;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin: 25px 0 0 0;
+
+      @media screen and (max-width: getNewsBreakpoint(4)) {
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .copyright {
+        color: getNewsColor(copyright);
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+      }
+
+      .policies {
+        ul {
+          display: flex;
+          flex-direction: row;
+
+          @media screen and (max-width: getNewsBreakpoint(4)) {
+            flex-direction: column;
+            margin: 35px 0 0 0;
+          }
+
+          li {
+            color: getNewsColor(policy);
+            font-size: 0.75rem;
+            font-family: "Open Sans", serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            padding-left: 10px;
+
+            @media screen and (max-width: getNewsBreakpoint(1)) {
+              width: auto;
+            }
+
+            @media screen and (max-width: getNewsBreakpoint(4)) {
+              text-align: center;
+            }
+
+            &:hover {
+              color: getNewsColor(policyhover);
+              transition: 0.15s ease-in-out;
+            }
+          }
+
+          li:not(:last-of-type) {
+            border-right: 1px solid white;
+            padding-right: 10px;
+
+            @media screen and (max-width: getNewsBreakpoint(3)) {
+              border: none;
+            }
+
+            @media screen and (max-width: getNewsBreakpoint(4)) {
+              margin: 0 0 20px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

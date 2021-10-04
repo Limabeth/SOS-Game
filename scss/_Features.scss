@@ -1,0 +1,23 @@
+$BGFeatures: url("../img/background/3.jpg");
+
+$FeaturesPageColors: (
+  headers: #ffffff,
+  text: #ffffff,
+  button: #ffb548,
+  buttonhover: #ffffff,
+);
+
+$FeaturesPageBreakpoints: (
+  1: 1540px,
+  2: 1220px,
+  3: 580px,
+  4: 400px,
+);
+
+@function getFeaturesColor($type) {
+  @return map-get($FeaturesPageColors, $type);
+}
+
+@function getFeaturesBreakpoint($breakpoint) {
+  @return map-get($FeaturesPageBreakpoints, $breakpoint);
+}

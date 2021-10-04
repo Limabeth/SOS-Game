@@ -1,0 +1,45 @@
+$BGNewsletter: url("../img/background/6.png");
+
+$facebook: url("../img/icons/media/facebook.svg");
+$facebookhover: url("../img/icons/media/facebookhover.svg");
+
+$telegram: url("../img/icons/media/telegram.svg");
+$telegramhover: url("../img/icons/media/telegramhover.svg");
+
+$youtube: url("../img/icons/media/youtube.svg");
+$youtubehover: url("../img/icons/media/youtubehover.svg");
+
+$twitch: url("../img/icons/media/twitch.svg");
+$twitchhover: url("../img/icons/media/twitchhover.svg");
+
+$NewsletterPageBreakpoints: (
+  1: 1430px,
+  2: 900px,
+  3: 780px,
+  4: 660px,
+  5: 510px,
+  6: 480px,
+);
+
+$NewsletterColors: (
+  headers: #ffffff,
+  text: #ffffff,
+  nav: #ffffff,
+  navhover: #ffb548,
+  icon: #ffffff,
+  iconhover: #ff1313,
+  copyright: #696969,
+  policy: #ffffff,
+  policyhover: #ffb548,
+  input: #ffb548,
+  button: #ffb548,
+  buttonhover: #ffffff,
+);
+
+@function getNewsColor($type) {
+  @return map-get($NewsletterColors, $type);
+}
+
+@function getNewsBreakpoint($bp) {
+  @return map-get($NewsletterPageBreakpoints, $bp);
+} ;

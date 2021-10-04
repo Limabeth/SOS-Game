@@ -1,0 +1,33 @@
+$BGQuotes: url("../img/background/5.jpg");
+
+$QuotesColors: (
+  primary: #ffffff,
+  secondary: #FFB548,
+  quote: #e3e3e3,
+  other: #696969,
+);
+
+$QuotesPageBreakpoints: (
+  1: 1300px,
+  2: 940px,
+);
+
+$twitter: url("../img/icons/twitter/twitter.svg");
+
+$UserPictures: (
+  evan_lahti: url("../img/users/evan_lahti.jpg"),
+  jada_griffin: url("../img/users/jada_griffin.jpg"),
+  aaron_williams: url("../img/users/aaron_williams.jpg"),
+);
+
+@function getUserImg($user) {
+  @return map-get($UserPictures, $user);
+}
+
+@function getQuotesColor($type) {
+  @return map-get($QuotesColors, $type);
+}
+
+@function getQuotesBreakpoint($breakpoint) {
+  @return map-get($QuotesPageBreakpoints, $breakpoint);
+}

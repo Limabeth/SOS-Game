@@ -1,0 +1,14 @@
+@mixin BG {
+  position: relative;
+  background-size: cover !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  user-select: none;
+  overflow: hidden;
+}
+
+@mixin IconAsBG {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+

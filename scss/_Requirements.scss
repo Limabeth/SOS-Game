@@ -1,0 +1,19 @@
+$BGRequirements: url("../img/background/4.jpg");
+
+$RequirementsPageColors: (
+  headers: white,
+  primary: #ffb548,
+  secondary: white,
+);
+
+$RequirementsPageBreakpoints: (
+  1: 950px,
+);
+
+@function getReqsBreakpoint($breakpoint) {
+  @return map-get($RequirementsPageBreakpoints, $breakpoint);
+}
+
+@function getReqsColor($type) {
+  @return map-get($RequirementsPageColors, $type);
+} ;

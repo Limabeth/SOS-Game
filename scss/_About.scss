@@ -1,0 +1,28 @@
+$BGAbout: url("../img/background/2.jpg");
+
+$switch: url("../img/gallery/switch.svg");
+$switchhover: url("../img/gallery/switchhover.svg");
+
+$ScreenshotWidth: 345px;
+$ScreenshotHeight: 505px;
+
+$AboutPageColors: (
+ headers: #ffffff,
+ text: #ffffff,
+ underline: #ffb548,
+);
+
+$AboutPageBreakpoints: (
+  1: 1250px,
+  2: 960px,
+  3: 780px,
+  4: 550px,
+);
+
+@function getAboutColor($type) {
+    @return map-get($AboutPageColors, $type)
+};
+
+@function getAboutBreakpoint($breakpoint) {
+  @return map-get($AboutPageBreakpoints, $breakpoint);
+}
