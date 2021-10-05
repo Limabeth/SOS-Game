@@ -64,11 +64,11 @@ function scrollArrow() {
 
 function scrollers() {
   const buttonsForward = [
-    document.querySelector(".scroll-main-forward"),
-    document.querySelector(".scroll-about-forward"),
-    document.querySelector(".scroll-features-forward"),
-    document.querySelector(".scroll-reqs-forward"),
-    document.querySelector(".scroll-quotes-forward"),
+    document.querySelector('.scroll-main-forward'),
+    document.querySelector('.scroll-about-forward'),
+    document.querySelector('.scroll-features-forward'),
+    document.querySelector('.scroll-reqs-forward'),
+    document.querySelector('.scroll-quotes-forward'),
   ];
 
   const buttonsBackward = [
