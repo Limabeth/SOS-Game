@@ -776,13 +776,13 @@ a:hover {
   .about-page .text-content {
     width: auto;
     height: auto;
-    margin: 0 0 25px 0;
+    margin: 25px 0 25px 0;
   }
 }
 
 @media screen and (max-width: 550px) {
   .about-page .text-content {
-    margin: 15px;
+    margin: 25px;
     width: 300px;
   }
 }

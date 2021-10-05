@@ -3,13 +3,14 @@ function showLanguages() {
   const languages = document.getElementsByClassName("lang-list")[0];
 
   const mobileLanguage = document.getElementsByClassName("mobile-lang")[0];
-  const mobileLanguages = document.getElementsByClassName("mobile-lang-list")[0];
+  const mobileLanguages =
+    document.getElementsByClassName("mobile-lang-list")[0];
 
   mobileLanguage.addEventListener("click", () => {
     return mobileLanguages.style.display === "none"
-    ? (mobileLanguages.style.display = "flex")
-    : (mobileLanguages.style.display = "none");
-  })
+      ? (mobileLanguages.style.display = "flex")
+      : (mobileLanguages.style.display = "none");
+  });
 
   language.addEventListener("click", () => {
     return languages.style.display === "none"
@@ -47,7 +48,7 @@ function showMobileMenu() {
 
     menu.classList.remove("show");
   }
-};
+}
 
 function scrollArrow() {
   const scrollArrow = document.getElementsByClassName("main-scroll")[0];
@@ -57,33 +58,50 @@ function scrollArrow() {
     const coords = pageMain.getBoundingClientRect();
     const coordY = coords.height;
 
-    window.scroll({top: coordY, left: 0, behavior: "smooth"})
+    window.scroll({ top: coordY, left: 0, behavior: "smooth" });
   });
 }
 
 function scrollers() {
-  const scrollMain = document.querySelector(".scroll-main");
-  const scrollAbout = document.querySelector(".scroll-about");
-  const scrollFeatures = document.querySelector(".scroll-features");
-  const scrollReqs = document.querySelector(".scroll-reqs");
-  const scrollQuotes = document.querySelector(".scroll-quotes");
+  const buttons = [
+    document.querySelector(".scroll-main"),
+    document.querySelector(".scroll-about"),
+    document.querySelector(".scroll-features"),
+    document.querySelector(".scroll-reqs"),
+    document.querySelector(".scroll-quotes"),
+  ];
 
-  scrollMain.addEventListener("click", () => {
-    const mainPage = document.querySelector(".main-page");
-    const coords = mainPage.getBoundingClientRect();
-    const coordY = coords.top;
+  const pages = [
+    document.querySelector(".main-page"),
+    document.querySelector(".about-page"),
+    document.querySelector(".features-page"),
+    document.querySelector(".requirements-page"),
+    document.querySelector(".quotes-page"),
+  ];
 
+  buttons.forEach((button, index1) => {
+    button.addEventListener("click", () => {
+      let point = 0;
 
-    window.scroll({top: coordY, left: 0, behavior: "smooth"})
-  })
+      pages.forEach((page, index2) => {
+        if (index2 >= index1) {
+          return;
+        }
 
-  scrollAbout.addEventListener("click", () => {
-    const aboutPage = document.querySelector(".about-page");
-    const coords = aboutPage.getBoundingClientRect();
-    const coordY = coords.bottom;
+        point += getHeight(page);
+      });
 
-    window.scroll({top: coordY, left: 0, behavior: "smooth"})
-  })
+      console.log(point);
+
+      window.scroll({ top: point, left: 0, behavior: "smooth" });
+    });
+  });
+
+  function getHeight(el) {
+    const coords = el.getBoundingClientRect();
+    console.log()
+    return coords.height;
+  }
 }
 
 function collapsible() {
@@ -100,8 +118,8 @@ function collapsible() {
         text.classList.remove("show");
         item.classList.remove("active");
       }
-    })
-  })
+    });
+  });
 }
 
 function init() {
@@ -126,11 +144,11 @@ class Gallery {
   scroll() {
     const image = this.images[this.current];
 
-    image.style.left = (this.position + this.offset) + "px";
+    image.style.left = this.position + this.offset + "px";
     image.style.zIndex = -1;
     image.opacity = 0;
 
-    this.current === this.max ? this.current = 0 : this.current++;
+    this.current === this.max ? (this.current = 0) : this.current++;
 
     const nextDiv = this.images[this.current];
     const nextImg = nextDiv.children[0];
@@ -143,21 +161,21 @@ class Gallery {
     const secondImg = secondDiv.children[0];
     secondImg.style.width = "auto";
     secondImg.style.height = "90%";
-    secondDiv.style.left = (this.position + this.offset) + "px";
+    secondDiv.style.left = this.position + this.offset + "px";
     secondDiv.style.zIndex = 2;
 
     const thirdDiv = this.images[this.calculate(this.current, 2, this.max)];
     const thirdImg = thirdDiv.children[0];
     thirdImg.style.width = "auto";
     thirdImg.style.height = "80%";
-    thirdDiv.style.left = (this.position + (this.offset * 2)) + "px";
+    thirdDiv.style.left = this.position + this.offset * 2 + "px";
     thirdDiv.style.zIndex = 1;
   }
 
   calculate(curr, n, max) {
     let result;
     if (curr + n > max) {
-      result = (curr + n - 1) - max;
+      result = curr + n - 1 - max;
       return result;
     }
 
