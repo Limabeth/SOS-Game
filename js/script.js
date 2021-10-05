@@ -72,19 +72,19 @@ function scrollers() {
   ];
 
   const buttonsBackward = [
-    document.querySelector(".scroll-main-backward"),
-    document.querySelector(".scroll-about-backward"),
-    document.querySelector(".scroll-features-backward"),
-    document.querySelector(".scroll-reqs-backward"),
-    document.querySelector(".scroll-quotes-backward"),
+    document.querySelector('.scroll-main-backward'),
+    document.querySelector('.scroll-about-backward'),
+    document.querySelector('.scroll-features-backward'),
+    document.querySelector('.scroll-reqs-backward'),
+    document.querySelector('.scroll-quotes-backward'),
   ];
 
   const buttonsMobile = [
-    document.querySelector(".scroll-main-mobile"),
-    document.querySelector(".scroll-about-mobile"),
-    document.querySelector(".scroll-features-mobile"),
-    document.querySelector(".scroll-reqs-mobile"),
-    document.querySelector(".scroll-quotes-mobile"),
+    document.querySelector('.scroll-main-mobile'),
+    document.querySelector('.scroll-about-mobile'),
+    document.querySelector('.scroll-features-mobile'),
+    document.querySelector('.scroll-reqs-mobile'),
+    document.querySelector('.scroll-quotes-mobile'),
   ];
 
   buttonsForward.forEach((button, index) => {
