@@ -557,8 +557,9 @@ a:hover {
 }
 
 .main-page .wrapper .buy:hover {
-  background: #e75149;
+  background: rgba(255, 255, 255, 0.75);
   transition: all 0.25s ease-in-out;
+  text-transform: underline;
 }
 
 .main-page .wrapper .buy .bar {
@@ -652,16 +653,16 @@ a:hover {
   transform-origin: center;
 }
 
-.main-page .mobile-wrapper .menu-options {
+.main-page .mobile-wrapper .menu-options-mobile {
   display: none;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.main-page .mobile-wrapper .menu-options div {
+.main-page .mobile-wrapper .menu-options-mobile li {
   color: #ffffff;
   font-family: "Open Sans", serif;
-  font-size: 14px;
+  font-size: 0.8rem;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
@@ -669,17 +670,11 @@ a:hover {
   border-bottom: 1px solid white;
 }
 
-.main-page .mobile-wrapper .menu-options div div {
-  width: 20px;
-  height: 2px;
-  border: none;
-  border-radius: 5px;
-  background: white;
-  transition: 0.5s ease-in-out;
-  transform-origin: center;
+.main-page .mobile-wrapper .menu-options-mobile li:hover {
+  font-size: 1rem;
 }
 
-.main-page .mobile-wrapper .menu-options.show {
+.main-page .mobile-wrapper .menu-options-mobile.show {
   display: block;
 }
 
@@ -1802,6 +1797,7 @@ a:hover {
   color: #ffb548;
   transform: scale(1.1);
   transition: 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 .newsletter-page footer .navbar .menu li:not(:last-of-type) {

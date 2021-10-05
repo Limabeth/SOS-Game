@@ -21,14 +21,14 @@ function showLanguages() {
 
 function showMobileMenu() {
   const toggle = document.getElementsByClassName("lines")[0];
-  const menu = document.getElementsByClassName("menu-options")[0];
+  const menu = document.getElementsByClassName("menu-options-mobile")[0];
 
   toggle.addEventListener("click", () =>
     ![...menu.classList].includes("show") ? open() : close()
   );
 
   function open() {
-    const menu = document.getElementsByClassName("menu-options")[0];
+    const menu = document.getElementsByClassName("menu-options-mobile")[0];
     const lines = document.getElementsByClassName("line");
 
     lines[0].style.transform = "translateY(9px)" + " " + "rotate(45deg)";
@@ -39,7 +39,7 @@ function showMobileMenu() {
   }
 
   function close() {
-    const menu = document.getElementsByClassName("menu-options")[0];
+    const menu = document.getElementsByClassName("menu-options-mobile")[0];
     const lines = document.getElementsByClassName("line");
 
     lines[0].style.transform = "none";
@@ -63,44 +63,74 @@ function scrollArrow() {
 }
 
 function scrollers() {
-  const buttons = [
-    document.querySelector(".scroll-main"),
-    document.querySelector(".scroll-about"),
-    document.querySelector(".scroll-features"),
-    document.querySelector(".scroll-reqs"),
-    document.querySelector(".scroll-quotes"),
+  const buttonsForward = [
+    document.querySelector(".scroll-main-forward"),
+    document.querySelector(".scroll-about-forward"),
+    document.querySelector(".scroll-features-forward"),
+    document.querySelector(".scroll-reqs-forward"),
+    document.querySelector(".scroll-quotes-forward"),
   ];
 
-  const pages = [
-    document.querySelector(".main-page"),
-    document.querySelector(".about-page"),
-    document.querySelector(".features-page"),
-    document.querySelector(".requirements-page"),
-    document.querySelector(".quotes-page"),
+  const buttonsBackward = [
+    document.querySelector(".scroll-main-backward"),
+    document.querySelector(".scroll-about-backward"),
+    document.querySelector(".scroll-features-backward"),
+    document.querySelector(".scroll-reqs-backward"),
+    document.querySelector(".scroll-quotes-backward"),
   ];
 
-  buttons.forEach((button, index1) => {
+  const buttonsMobile = [
+    document.querySelector(".scroll-main-mobile"),
+    document.querySelector(".scroll-about-mobile"),
+    document.querySelector(".scroll-features-mobile"),
+    document.querySelector(".scroll-reqs-mobile"),
+    document.querySelector(".scroll-quotes-mobile"),
+  ];
+
+  buttonsForward.forEach((button, index) => {
     button.addEventListener("click", () => {
-      let point = 0;
-
-      pages.forEach((page, index2) => {
-        if (index2 >= index1) {
-          return;
-        }
-
-        point += getHeight(page);
-      });
-
-      console.log(point);
-
-      window.scroll({ top: point, left: 0, behavior: "smooth" });
+      scroll(index)
     });
   });
+
+  buttonsBackward.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      scroll(index)
+    });
+  });
+
+  buttonsMobile.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      scroll(index)
+    });
+  })
 
   function getHeight(el) {
     const coords = el.getBoundingClientRect();
     console.log()
     return coords.height;
+  }
+
+  function scroll(buttonIndex) {
+    const pages = [
+      document.querySelector(".main-page"),
+      document.querySelector(".about-page"),
+      document.querySelector(".features-page"),
+      document.querySelector(".requirements-page"),
+      document.querySelector(".quotes-page"),
+    ];
+
+    let point = 0;
+
+    pages.forEach((page, pageIndex) => {
+      if (pageIndex >= buttonIndex) {
+        return;
+      }
+
+      point += getHeight(page);
+    });
+
+    window.scroll({ top: point, left: 0, behavior: "smooth" });
   }
 }
 

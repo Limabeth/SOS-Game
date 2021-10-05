@@ -554,8 +554,9 @@ a:hover {
       }
 
       &:hover {
-        background: getMainColor(buttonhover);
+        background: rgba(255, 255, 255, 0.75);
         transition: all 0.25s ease-in-out;
+        text-transform: underline;
       }
 
       .bar {
@@ -656,34 +657,27 @@ a:hover {
       }
     }
 
-    .menu-options {
+    .menu-options-mobile {
       display: none;
       flex-direction: column;
       justify-content: space-between;
 
-      div {
-        color: getMainColor(nav);
-        font-family: "Open Sans", serif;
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-align: center;
+        li {
+          color: getMainColor(nav);
+          font-family: "Open Sans", serif;
+          font-size: 0.8rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          text-align: center;
+  
+          padding: 15px;
+          border-bottom: 1px solid white;
 
-        padding: 15px;
-        border-bottom: 1px solid white;
-
-        div {
-          width: 20px;
-          height: 2px;
-
-          border: none;
-          border-radius: 5px;
-          background: white;
-
-          transition: 0.5s ease-in-out;
-          transform-origin: center;
+          &:hover {
+            font-size: 1rem;
+          }
         }
-      }
+      
 
       &.show {
         display: block;
@@ -1774,6 +1768,7 @@ a:hover {
               color: getNewsColor(navhover);
               transform: scale(1.1);
               transition: 0.15s ease-in-out;
+              cursor: pointer;
             }
           }
         }
