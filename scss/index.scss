@@ -663,6 +663,7 @@ a:hover {
       justify-content: space-between;
 
         li {
+          opacity: 0;
           color: getMainColor(nav);
           font-family: "Open Sans", serif;
           font-size: 0.8rem;
@@ -673,8 +674,16 @@ a:hover {
           padding: 15px;
           border-bottom: 1px solid white;
 
+          animation: MobileMenu 800ms forwards;
+
           &:hover {
             font-size: 1rem;
+          }
+        }
+
+        @for $i from 1 through 5 {
+          div:nth-of-type(#{$i}) {
+            animation-delay: $i * 60ms;
           }
         }
       
@@ -732,6 +741,16 @@ a:hover {
         }
       }
     }
+  }
+}
+
+@keyframes MobileMenu {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -958,7 +977,7 @@ a:hover {
     height: 40px;
     background: $switch no-repeat center center;
 
-    margin: 0 6vw 0 2vw;
+    margin: 0 6vw 0 3vw;
 
     &:hover {
       background: $switchhover no-repeat center center;
@@ -971,7 +990,7 @@ a:hover {
     @media screen and (max-width: getAboutBreakpoint(2)) {
       background: $switchhover no-repeat center center;
       position: absolute;
-      top: 60%;
+      top: 65%;
       left: 80%;
     }
 
@@ -980,7 +999,7 @@ a:hover {
     }
 
     @media screen and (max-width: getAboutBreakpoint(4)) {
-      top: 75%;
+      top: 80%;
       left: 40%;
     }
   }
@@ -1114,8 +1133,8 @@ a:hover {
         }
 
         p {
-          display: none;
-          height: 0%;
+          overflow: hidden;
+          max-height: 0;
           width: 350px;
 
           margin: 5px 0 15px 0;
@@ -1128,14 +1147,7 @@ a:hover {
           text-align: justify;
           text-transform: none;
 
-          transition: 2.5s;
-
-          &.show {
-            display: block;
-            height: 100%;
-            transition: 2.5s;
-            animation: Collapsible 2s 1;
-          }
+          transition: 4s ease-out;
 
           @media screen and (max-width: getFeaturesBreakpoint(3)) {
             width: 200px;

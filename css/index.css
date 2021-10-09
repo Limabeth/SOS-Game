@@ -660,6 +660,7 @@ a:hover {
 }
 
 .main-page .mobile-wrapper .menu-options-mobile li {
+  opacity: 0;
   color: #ffffff;
   font-family: "Open Sans", serif;
   font-size: 0.8rem;
@@ -668,10 +669,31 @@ a:hover {
   text-align: center;
   padding: 15px;
   border-bottom: 1px solid white;
+  animation: MobileMenu 800ms forwards;
 }
 
 .main-page .mobile-wrapper .menu-options-mobile li:hover {
   font-size: 1rem;
+}
+
+.main-page .mobile-wrapper .menu-options-mobile div:nth-of-type(1) {
+  animation-delay: 60ms;
+}
+
+.main-page .mobile-wrapper .menu-options-mobile div:nth-of-type(2) {
+  animation-delay: 120ms;
+}
+
+.main-page .mobile-wrapper .menu-options-mobile div:nth-of-type(3) {
+  animation-delay: 180ms;
+}
+
+.main-page .mobile-wrapper .menu-options-mobile div:nth-of-type(4) {
+  animation-delay: 240ms;
+}
+
+.main-page .mobile-wrapper .menu-options-mobile div:nth-of-type(5) {
+  animation-delay: 300ms;
 }
 
 .main-page .mobile-wrapper .menu-options-mobile.show {
@@ -722,6 +744,15 @@ a:hover {
 
 .main-page .mobile-wrapper .mobile-languages .mobile-lang-list li:hover {
   color: #ffb548;
+}
+
+@keyframes MobileMenu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*--------------------------------------About--------------------------------------*/
@@ -963,7 +994,7 @@ a:hover {
   width: 40px;
   height: 40px;
   background: url("../img/gallery/switch.svg") no-repeat center center;
-  margin: 0 6vw 0 2vw;
+  margin: 0 6vw 0 3vw;
 }
 
 .about-page .switch:hover {
@@ -980,7 +1011,7 @@ a:hover {
   .about-page .switch {
     background: url("../img/gallery/switchhover.svg") no-repeat center center;
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 80%;
   }
 }
@@ -993,7 +1024,7 @@ a:hover {
 
 @media screen and (max-width: 550px) {
   .about-page .switch {
-    top: 75%;
+    top: 80%;
     left: 40%;
   }
 }
@@ -1115,8 +1146,8 @@ a:hover {
 }
 
 .features-page div ul li p {
-  display: none;
-  height: 0%;
+  overflow: hidden;
+  max-height: 0;
   width: 350px;
   margin: 5px 0 15px 0;
   color: #ffffff;
@@ -1126,14 +1157,7 @@ a:hover {
   font-weight: normal;
   text-align: justify;
   text-transform: none;
-  transition: 2.5s;
-}
-
-.features-page div ul li p.show {
-  display: block;
-  height: 100%;
-  transition: 2.5s;
-  animation: Collapsible 2s 1;
+  transition: 4s ease-out;
 }
 
 @media screen and (max-width: 580px) {

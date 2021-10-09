@@ -143,9 +143,11 @@ function collapsible() {
     item.addEventListener("click", () => {
       if (![...text.classList].includes("show")) {
         text.classList.add("show");
+        text.style.maxHeight = "750px";
         item.classList.add("active");
       } else {
         text.classList.remove("show");
+        text.style.maxHeight = "0";
         item.classList.remove("active");
       }
     });
@@ -175,31 +177,38 @@ class Gallery {
     const image = this.images[this.current];
 
     image.style.left = this.position + this.offset + "px";
+    image.style.opacity = 0;
+    image.style.transition = "0.5s ease-out";
     image.style.zIndex = -1;
-    image.opacity = 0;
 
     this.current === this.max ? (this.current = 0) : this.current++;
 
     const nextDiv = this.images[this.current];
     const nextImg = nextDiv.children[0];
+    nextDiv.style.opacity = 1;
     nextImg.style.width = "auto";
     nextImg.style.height = "100%";
     nextDiv.style.left = this.position + "px";
-    nextDiv.style.zIndex = 3;
+    nextDiv.style.zIndex = 30;
+    nextDiv.style.transition = "0.5s ease-in";
 
     const secondDiv = this.images[this.calculate(this.current, 1, this.max)];
     const secondImg = secondDiv.children[0];
+    secondDiv.style.opacity = 1;
     secondImg.style.width = "auto";
     secondImg.style.height = "90%";
     secondDiv.style.left = this.position + this.offset + "px";
-    secondDiv.style.zIndex = 2;
+    secondDiv.style.zIndex = 20;
+    secondDiv.style.transition = "0.75s ease-in";
 
     const thirdDiv = this.images[this.calculate(this.current, 2, this.max)];
     const thirdImg = thirdDiv.children[0];
+    thirdDiv.style.opacity = 1;
     thirdImg.style.width = "auto";
     thirdImg.style.height = "80%";
     thirdDiv.style.left = this.position + this.offset * 2 + "px";
-    thirdDiv.style.zIndex = 1;
+    thirdDiv.style.zIndex = 10;
+    thirdDiv.style.transition = "1s ease-in";
   }
 
   calculate(curr, n, max) {
