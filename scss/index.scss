@@ -312,6 +312,34 @@ a:hover {
   text-decoration: none;
 }
 
+.preload-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+
+  div {
+    width: 50px;
+    height: 50px;
+  }
+
+  .preload-xbox {
+    background: url($xboxhover);
+  } 
+
+  .preload-steam {
+    background: url($steamhover);
+  }
+
+  .preload-scrolldown {
+    background: url($scrollhover);
+  }
+
+  .preload-switch {
+    background: url($switchhover);
+  }
+}
+
 .main-page {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), $BGMain;
   @include BG;

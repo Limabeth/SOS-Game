@@ -302,6 +302,34 @@ a:hover {
   text-decoration: none;
 }
 
+.preload-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.preload-img div {
+  width: 50px;
+  height: 50px;
+}
+
+.preload-img .preload-xbox {
+  background: url(url("../img/icons/xboxhover.svg"));
+}
+
+.preload-img .preload-steam {
+  background: url(url("../img/icons/steamhover.svg"));
+}
+
+.preload-img .preload-scrolldown {
+  background: url(url("../img/icons/scrollhover.svg"));
+}
+
+.preload-img .preload-switch {
+  background: url(url("../img/gallery/switchhover.svg"));
+}
+
 .main-page {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/background/1.jpg");
   position: relative;
