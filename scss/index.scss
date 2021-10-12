@@ -1919,6 +1919,8 @@ a:hover {
 
             padding-left: 10px;
 
+            cursor: pointer;
+
             @media screen and (max-width: getNewsBreakpoint(1)) {
               width: auto;
             }
