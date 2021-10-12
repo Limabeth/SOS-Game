@@ -324,19 +324,19 @@ a:hover {
   }
 
   .preload-xbox {
-    background: url($xboxhover);
+    background: $xboxhover;
   } 
 
   .preload-steam {
-    background: url($steamhover);
+    background: $steamhover;
   }
 
   .preload-scrolldown {
-    background: url($scrollhover);
+    background: $scrollhover;
   }
 
   .preload-switch {
-    background: url($switchhover);
+    background: $switchhover;
   }
 }
 

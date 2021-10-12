@@ -315,19 +315,19 @@ a:hover {
 }
 
 .preload-img .preload-xbox {
-  background: url(url("../img/icons/xboxhover.svg"));
+  background: url("../img/icons/xboxhover.svg");
 }
 
 .preload-img .preload-steam {
-  background: url(url("../img/icons/steamhover.svg"));
+  background: url("../img/icons/steamhover.svg");
 }
 
 .preload-img .preload-scrolldown {
-  background: url(url("../img/icons/scrollhover.svg"));
+  background: url("../img/icons/scrollhover.svg");
 }
 
 .preload-img .preload-switch {
-  background: url(url("../img/gallery/switchhover.svg"));
+  background: url("../img/gallery/switchhover.svg");
 }
 
 .main-page {
